@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exportar Banco de Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .export-container {
+            background: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .export-container h2 {
+            margin-top: 0;
+        }
+        .export-container p {
+            margin: 15px 0;
+        }
+        .export-container form input[type="submit"] {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .export-container form input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .back-link {
+            margin-top: 15px;
+        }
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="export-container">
+        <h2>Exportar Banco de Dados</h2>
+        <p>Clique no botão abaixo para exportar e baixar o banco de dados.</p>
+        <form method="POST" action="/download-db">
+            <input type="submit" value="Exportar e Baixar">
+        </form>
+        <div class="back-link">
+            <a href="/">Voltar para a Página Inicial</a>
+        </div>
+    </div>
+</body>
+</html>

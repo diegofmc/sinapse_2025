@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuração de Rede e Hostname</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 700px;
+            width: 100%;
+        }
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        h2, h3, h4 {
+            margin-top: 0;
+        }
+        .form-container form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .form-container form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .form-container form input[type="submit"] {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container form input[type="submit"]:hover {
+            background: #218838;
+        }
+        .info-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-container li {
+            background: #f1f1f1;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .link-container {
+            text-align: center;
+        }
+        .link-container a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .export-link a {
+            background: #007bff;
+            color: white;
+        }
+        .export-link a:hover {
+            background: #0056b3;
+        }
+        .clear-storage-link a {
+            background: #dc3545;
+            color: white;
+        }
+        .clear-storage-link a:hover {
+            background: #b02a37;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Formulário de configuração -->
+        <div class="card form-container">
+            <h2>Configuração de Rede e Hostname</h2>
+            <form method="POST">
+                <label>IP:</label>
+                <input type="text" name="ip" required>
+                <label>Gateway:</label>
+                <input type="text" name="gateway" required>
+                <label>DNS:</label>
+                <input type="text" name="dns" required>
+                <label>Hostname:</label>
+                <input type="text" name="hostname" required>
+                <input type="submit" value="Salvar Configuração">
+            </form>
+            <p class="message">{{ message }}</p>
+        </div>
+        
+        <!-- Informações atuais -->
+        <div class="card info-container">
+            <h3>Informações Atuais</h3>
+            <p><strong>Hostname:</strong> {{ current_hostname }}</p>
+            <h4>IPs Atuais:</h4>
+            <ul>
+                {% for ip in current_ips %}
+                    <li>{{ ip }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Links adicionais -->
+        <div class="card link-container">
+            <div class="export-link">
+                <a href="/export">Exportar Banco de Dados do MariaDB</a>
+            </div>
+            <div class="clear-storage-link">
+                <a href="/clear">Limpeza de Armazenamento</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
