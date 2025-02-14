@@ -4,27 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitor de Sensores</title>
-    <script src="script.js" defer></script>
+    <!-- Alterado para referenciar o script diretamente -->
+    <script src="/script.js" defer></script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        table { margin: 20px auto; border-collapse: collapse; width: 60%; }
-        th, td { border: 1px solid black; padding: 10px; }
+        table { margin: 20px auto; border-collapse: collapse; width: 80%; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
         th { background-color: #f2f2f2; }
         button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        input { width: 50px; text-align: center; }
     </style>
 </head>
 <body>
     <h1>Monitor de Sensores</h1>
-    <button onclick="atualizarDados()">Atualizar Dados</button>
+
+    <!-- Botões para atualizar e forçar leitura -->
+    <button onclick="atualizarDados()">🔄 Atualizar Dados</button>
+    <button onclick="forcarLeitura()">⚡ Forçar Nova Leitura</button>
+
+    <br><br>
+
+    <!-- Controle do canal -->
+    <label for="canal">Mudar Canal: </label>
+    <input type="number" id="canal" min="1" max="16" value="3">
+    <button onclick="mudarCanal()">📡 Alterar Canal</button>
+
+    <br><br>
+
+    <!-- Tabela para mostrar os dados -->
     <table>
         <thead>
             <tr>
-                <th>Data/Hora</th>
-                <th>Sensor</th>
-                <th>Temperatura (°C)</th>
+                <th>📅 Data/Hora</th>
+                <th>📡 Canal</th>
+                <th>🔢 Sensor</th>
+                <th>🌡️ Temperatura (°C)</th>
             </tr>
         </thead>
-        <tbody id="sensor-data"></tbody>
+        <tbody id="sensor-data">
+            <tr>
+                <td colspan="4">Carregando dados...</td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>
